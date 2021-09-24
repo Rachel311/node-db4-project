@@ -6,7 +6,6 @@ exports.up = function(knex) {
       table.string('instructions').notNullable()
       table.integer('recipe_id')
         .unsigned()
-        .index()
         .references('recipe_id')
         .inTable('recipes')
   })
