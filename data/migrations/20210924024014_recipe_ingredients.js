@@ -1,8 +1,8 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('recipe_ingredients', table => {
-      table.increments()
-        .integer('recipe_id')
+      table.increments('recipe_ingredients_id')
+      table.integer('recipe_id')
         .unsigned()
         .references('recipe_id')
         .inTable('recipes')
@@ -10,7 +10,7 @@ exports.up = function(knex) {
         .onUpdate('CASCADE');
       table.integer('ingredient_id')
         .unsigned()
-        .references('id')
+        .references('ingredient_id')
         .inTable('ingredients')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
